@@ -350,7 +350,8 @@ class Modmail(commands.Bot):
         channel = discord.utils.get(guild.text_channels, topic=topic)
         categ = discord.utils.get(guild.categories, name='Mod Mail')
         top_chan = categ.channels[0] #bot-info
-        blocked = top_chan.topic.split('Blocked\n-------')[1].strip().split('\n')
+        blocked = top_chan.topic.split('Blocked\n-------')[1]
+        blocked = blocked.strip().split('\n')
         blocked = [x.strip() for x in blocked]
 
         if str(message.author.id) in blocked:
